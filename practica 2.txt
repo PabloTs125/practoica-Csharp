@@ -1,36 +1,67 @@
- public class Libros {
+public class Libros {
 // Atributos 
-private String ISBN="";
-private String Titulo=""; 
-private String Autor="";
-private int numpaginas;
 
-//Metodos
-public void ConsultarISBN () {
+private String ISBN=""; //esta linea muestra el atributo privado del ISBN 
+private String Titulo=""; // esta linea muestra el atributo privado del titulo
+private String Autor=""; // esta linea muestra el atributo pruivado del autor
+private int numpaginas; // esta linea muestra el atributo privado del numero de paginas
+
+//Metodos - creamos el listado de metodos para consultar y configurar
+public void ConsultarISBN () {  // en esta linea encontramos la consulta del ISBN
    Console.WriteLine (this.ISBN); 
 }
-public void ConsultarTitulo () {
+public void ConsultarTitulo () { // en esta linea encontramos la consulta del titulo
    Console.WriteLine  (this.Titulo);
 }
-public void Consultarautor () {
+public void Consultarautor () { // en esta linea encontramos la consulta del autor
   Console.WriteLine ( this.Autor);
 }
-public int Consultarnumpaginas () {
+public int Consultarnumpaginas () { // en esta linea encontramos la consulta del numero de paginas
    return this.numpaginas; 
 }
-public void  SetISBN (string ISBN) {
+public void  SetISBN (string ISBN) { async // a partir de esta linea hallamos las configuraciones, en este caso la de ISBN
     this.ISBN = ISBN;
 }
-public void SetTitulo (string Titulo) {
+public void SetTitulo (string Titulo) { // en esta linea tenemos la configuracion del titulo
     this.Titulo = Titulo;
 }
-public void SetAutor (string Autor) {
+public void SetAutor (string Autor) { // en esta linea está la configuracion del autor 
     this.Autor = Autor;
 }
-public void Setnumpaginas (int numpaginas) {
+public void Setnumpaginas (int numpaginas) { // por ultimo en esta linea esta la configuracion del numero de paginas
     this.numpaginas = numpaginas; }
-public void tostring (){
-   Console.WriteLine("El libro "+this.Titulo+" del autor "+this.Autor+" tiene "+this.numpaginas+" paginas");
+public void tostring (){ // aqui ejecutamos el tostring 
+   Console.WriteLine("El libro "+this.Titulo+" del autor "+this.Autor+" tiene "+this.numpaginas+" paginas"); //unimos a tostring el console writeline para mostrar en pantalla 
 }
  }
- 
+ /Creamos una clase libro
+public class Libreta{
+
+//Creamos un producto Main y creamos dos libros 
+ public static void Main(string[] args){
+
+    Libros Pinocho= new Libros();
+    Pinocho.Setnumpaginas(169);
+    Pinocho.SetISBN("312546764532");
+    Pinocho.SetAutor("Carlos collodi");
+    Pinocho.SetTitulo("Pinocho");
+    Pinocho.tostring();
+
+    Libros NACHO = new Libros ();
+    NACHO.Setnumpaginas(50);
+    NACHO.SetISBN("312897654323");
+    NACHO.SetAutor("Melanio Hernandez");
+   NACHO.SetTitulo("Nacho");
+    NACHO.tostring();
+  
+if (NACHO.Consultarnumpaginas() >= Pinocho.Consultarnumpaginas())  {
+
+   Console.WriteLine("Pinocho tiene mas paginas");
+}
+   else
+   {
+    Console.WriteLine("NACHO tiene menos pagina");
+   }
+   }
+
+ }
